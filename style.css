@@ -1,57 +1,60 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.box{
-    width: 100%;
-}
-.box{
-    width: 100%;
-}
-header{
+
+header {
     width: 100%;
     height: 100vh;
-    background: url(img/fon.png);
-    background-size: 100% 100%;
+    background: url(img/fon.png) no-repeat center center;
+    background-size: cover;
     display: flex;
     justify-content: center;
 }
-.header_box{
+
+.header_box {
     width: 75%;
     height: 700px;
     margin-top: 50px;
 }
-nav{
+
+nav {
     width: 100%;
     height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.cofea{
+.minin{
+    font-family: 'Montserrat', sans-serif;
+text-transform: uppercase; /* Чтобы все буквы были заглавными */
+letter-spacing: 2px;
+color: white;
+}
+.cofea {
     font-size: 30px;
     font-family: monospace;
+    color: white;
 }
-.nav_box{
+
+.nav_box {
     width: 50%;
     height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.nav_a{
+
+.nav_a {
     color: white;
     text-decoration: none;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: system-ui, sans-serif;
     font-weight: 600;
     font-size: 18px;
 }
-.minin{
-    font-family: "Outfit", sans-serif;
-    color: white;
-}
-.bolsh{
+
+.bolsh {
     width: 40%;
     height: 500px;
     margin-top: 100px;
@@ -59,23 +62,27 @@ nav{
     flex-direction: column;
     justify-content: space-between;
 }
-h1{
+
+h1 {
     font-size: 72px;
     font-family: "Playfair Display", serif;
     color: white;
 }
-.lorim{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 400;
+
+.lorim {
+    font-family: system-ui, sans-serif;
     color: white;
 }
-.butan{
+
+.butan {
     width: 130px;
     height: 40px;
     border-radius: 50px;
-    border: 0px solid;
+    border: none;
+    cursor: pointer;
 }
-.out{
+
+.out {
     width: 100%;
     height: 220px;
     background: #E2D9C8;
@@ -83,10 +90,162 @@ h1{
     justify-content: center;
     align-items: center;
 }
-.oubl{
+
+.oubl {
     width: 44%;
-    height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+/* --- СЕКЦИЯ СЛАЙДЕРА (КОНТЕЙНЕР) --- */
+.swiper-container-main {
+    width: 100%;             /* Растягиваем на всю ширину */
+    max-width: 1400px;       /* Но ограничиваем на очень больших экранах, чтобы не было "разлета" */
+    margin: 60px auto;
+    position: relative;
+    padding: 0 60px;         /* Отступы для стрелок по бокам */
+}
+
+.oure {
+    font-family: "Playfair Display", serif;
+    margin-bottom: 40px;
+    font-size: 36px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #230C05;
+}
+
+/* --- НАСТРОЙКИ SWIPER --- */
+.mySwiper {
+    width: 100%;
+    padding-bottom: 50px;    /* Место под точки пагинации */
+    overflow: hidden;        /* ОБЯЗАТЕЛЬНО: прячет карточки, которые не влезли */
+}
+
+.swiper-wrapper {
+    display: flex !important;       /* Выстраивает карточки в ряд */
+    flex-wrap: nowrap !important;   /* ЗАПРЕЩАЕТ карточкам падать вниз */
+}
+
+.swiper-slide {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background: transparent !important;
+    border: none !important;
+    flex-shrink: 0;                 /* Не дает карточкам сплющиваться */
+}
+
+/* --- ДИЗАЙН КАРТОЧКИ --- */
+.card {
+    background-color: #F1E9DF; 
+    border-radius: 20px;       
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;                    /* Карточка слушается ширины слайда от Swiper */
+    border: 1px solid #e3d5ca;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 400px;              /* Выравниваем все карточки по высоте */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.image-box {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.image-box img {
+    width: 100%;
+    aspect-ratio: 1 / 1;            /* Делает картинку идеально квадратной */
+    display: block;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+.heart-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* --- ТЕКСТ В КАРТОЧКЕ --- */
+.card-title {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 20px; 
+    color: #2D231E;
+    margin: 5px 0;
+}
+
+.card-desc {
+    font-size: 14px; 
+    color: #4A3A31;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;               /* Прижимает цену и кнопку к низу карточки */
+}
+
+.card-price {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1A110D;
+}
+
+.order-btn {
+    background-color: #230805;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.order-btn:hover {
+    background-color: #461b17;
+}
+
+/* --- КНОПКИ (СТРЕЛКИ) --- */
+.swiper-button-next, .swiper-button-prev {
+    color: #230C05 !important;
+    background: #e3d5ca;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background 0.3s;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    background: #d4c1b0;
+}
+
+.swiper-button-prev { left: 5px !important; }
+.swiper-button-next { right: 5px !important; }
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 18px !important;
+    font-weight: bold;
+}
+
+/* --- ПАГИНАЦИЯ (ТОЧКИ) --- */
+.swiper-pagination-bullet-active {
+    background: #230C05 !important;
 }
