@@ -105,6 +105,8 @@ h1 {
     margin: 60px auto;
     position: relative;
     padding: 0 60px;         /* Отступы для стрелок по бокам */
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .oure {
@@ -116,25 +118,35 @@ h1 {
     color: #230C05;
 }
 
-/* --- НАСТРОЙКИ SWIPER --- */
-.mySwiper {
+/* --- НАСТРОЙКИ SWIPER (Применяем сразу к ОБОИМ слайдерам) --- */
+.mySwiper, .mySwiper2 {
     width: 100%;
     padding-bottom: 50px;    /* Место под точки пагинации */
     overflow: hidden;        /* ОБЯЗАТЕЛЬНО: прячет карточки, которые не влезли */
 }
 
-.swiper-wrapper {
+/* Применяем к обёрткам обоих слайдеров */
+.mySwiper .swiper-wrapper, .mySwiper2 .swiper-wrapper {
     display: flex !important;       /* Выстраивает карточки в ряд */
     flex-wrap: nowrap !important;   /* ЗАПРЕЩАЕТ карточкам падать вниз */
 }
 
-.swiper-slide {
+/* Применяем к слайдам обоих блоков */
+.mySwiper .swiper-slide, .mySwiper2 .swiper-slide {
     height: auto;
     display: flex;
     justify-content: center;
     background: transparent !important;
     border: none !important;
     flex-shrink: 0;                 /* Не дает карточкам сплющиваться */
+}
+
+/* --- РОДИТЕЛЬСКИЙ КОНТЕЙНЕР (Якорь для стрелок) --- */
+.swiper-container-main {
+    position: relative;             /* Родоначальник координат! Теперь стрелки не улетят */
+    width: 100%;
+    padding: 0 50px;                /* Добавляем боковые отступы, чтобы стрелки не вылезали за экран */
+    box-sizing: border-box;
 }
 
 /* --- ДИЗАЙН КАРТОЧКИ --- */
@@ -221,8 +233,11 @@ h1 {
     background-color: #461b17;
 }
 
-/* --- КНОПКИ (СТРЕЛКИ) --- */
-.swiper-button-next, .swiper-button-prev {
+/* --- КНОПКИ (СТРЕЛКИ) ДЛЯ ОБОИХ БЛОКОВ --- */
+.swiper-button-next, .swiper-button-prev,
+.btn-next-1, .btn-prev-1,
+.btn-next-2, .btn-prev-2 {
+    position: absolute;             /* Абсолютное позиционирование относительно .swiper-container-main */
     color: #230C05 !important;
     background: #e3d5ca;
     width: 45px !important;
@@ -231,16 +246,30 @@ h1 {
     top: 50%;
     transform: translateY(-50%);
     transition: background 0.3s;
+    z-index: 100;                    /* Выталкиваем стрелки поверх картинок */
+    cursor: pointer;
 }
 
-.swiper-button-next:hover, .swiper-button-prev:hover {
+.swiper-button-next:hover, .swiper-button-prev:hover,
+.btn-next-1:hover, .btn-prev-1:hover,
+.btn-next-2:hover, .btn-prev-2:hover {
     background: #d4c1b0;
 }
 
-.swiper-button-prev { left: 5px !important; }
-.swiper-button-next { right: 5px !important; }
+/* Позиционирование левых стрелок (выносим за левый край слайдера) */
+.swiper-button-prev, .btn-prev-1, .btn-prev-2 { 
+    left: 0px !important; 
+}
 
-.swiper-button-next:after, .swiper-button-prev:after {
+/* Позиционирование правых стрелок (выносим за правый край слайдера) */
+.swiper-button-next, .btn-next-1, .btn-next-2 { 
+    right: 0px !important; 
+}
+
+/* Оформление стрелочек-иконок внутри кнопок */
+.swiper-button-next:after, .swiper-button-prev:after,
+.btn-next-1:after, .btn-prev-1:after,
+.btn-next-2:after, .btn-prev-2:after {
     font-size: 18px !important;
     font-weight: bold;
 }
@@ -248,4 +277,329 @@ h1 {
 /* --- ПАГИНАЦИЯ (ТОЧКИ) --- */
 .swiper-pagination-bullet-active {
     background: #230C05 !important;
+}
+.check_out{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #E2D9C8;
+    margin: 0 auto;
+}
+.check_div{
+    width: 40%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.checks{
+    width: 60%;
+    font-family: "Playfair Display", serif;
+font-weight: 600;
+font-size: 40px;
+line-height: 50px;
+letter-spacing: 0%;
+text-align: center;
+
+}
+.butaaan{
+    width: 258px;
+    height: 50px;
+    background: #30261C;
+    color: white;
+    border: 0px;
+    border-radius: 25px;
+}
+.come{
+    width: 75%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+.tex{
+    height: 100px;
+}
+.tex1{
+    font-family: "Reggae One", system-ui;
+font-weight: 400;
+font-style: Regular;
+font-size: 32px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+padding: 30px;
+}
+.tex2{
+    font-family: "Playfair Display", serif;
+font-weight: 600;
+font-style: SemiBold;
+font-size: 32px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 4%;
+text-transform: uppercase;
+text-align: center;
+padding: 30px;
+}
+/* Контейнер всей секции */
+.reviews-container {
+    background-color: #F5F3F0; /* Легкий бежевый фон всей секции */
+    padding: 60px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Слайдер и отступ под точки */
+.myReviewsSwiper {
+    padding-bottom: 40px !important;
+}
+
+/* Обычная карточка */
+.review-card {
+    background: #EAE3DA;      /* Чуть более темный бежевый для боковых */
+    border-radius: 20px;
+    padding: 30px;
+    text-align: left;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+/* !!! МАГИЯ: Стили для ЦЕНТРАЛЬНОГО АКТИВНОГО слайда !!! */
+.myReviewsSwiper .swiper-slide-active .review-card {
+    background: #F1E9DF;      /* Светлый фон */
+    border: 1px solid #C4B5A5; /* Тонкая рамка */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Легкая тень */
+    transform: scale(1.02);    /* Едва заметное увеличение */
+}
+
+/* Шапка карточки */
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.review-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.review-user-info {
+    flex-grow: 1;
+}
+
+.review-name {
+    font-weight: 700;
+    font-size: 18px;
+    color: #2D231E;
+    margin: 0;
+}
+
+.review-role {
+    font-size: 14px;
+    color: #7A6B61;
+    margin: 2px 0 0 0;
+}
+
+/* Звездочки */
+.review-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.star {
+    font-size: 18px;
+}
+
+.star.filled {
+    color: #FFB800; /* Золотые звезды */
+}
+
+.star.empty {
+    color: #C4B5A5; /* Серые звезды */
+}
+
+/* Текст отзыва */
+.review-text {
+    font-size: 14px;
+    color: #4A3A31;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Стилизация точек внизу */
+.reviews-pagination .swiper-pagination-bullet {
+    background: #A6978A !important;
+    opacity: 1;
+}
+
+.reviews-pagination .swiper-pagination-bullet-active {
+    background: #230C05 !important; /* Активная точка темно-коричневая */
+    width: 10px;
+    height: 10px;
+}
+/* Добавляем новые селекторы через запятую к старым */
+.swiper-container-main .swiper-button-next, 
+.swiper-container-main .swiper-button-prev,
+.swiper-container-main .btn-next-1, 
+.swiper-container-main .btn-prev-1,
+.swiper-container-main .btn-next-2, 
+.swiper-container-main .btn-prev-2,
+.swiper-container-main .btn-next-3, 
+.swiper-container-main .btn-prev-3 {
+    position: absolute !important;
+    color: #230C05 !important;
+    background: #e3d5ca !important;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    transition: background 0.3s ease;
+    z-index: 100 !important;
+    cursor: pointer !important;
+    margin-top: 0 !important;
+}
+
+/* Ховер-эффект для третьих стрелок */
+.swiper-container-main .btn-next-3:hover, 
+.swiper-container-main .btn-prev-3:hover {
+    background: #d4c1b0 !important;
+}
+
+/* Левая кнопка */
+.swiper-container-main .btn-prev-3 { 
+    left: -10px !important; 
+    right: auto !important;
+}
+
+/* Правая кнопка */
+.swiper-container-main .btn-next-3 { 
+    right: -10px !important; 
+    left: auto !important;
+}
+
+/* Иконки внутри кнопок */
+.swiper-container-main .btn-next-3:after, 
+.swiper-container-main .btn-prev-3:after {
+    font-size: 18px !important;
+    font-weight: bold !important;
+}
+.join{
+    width: 100%;
+    height: 320px;
+    background: #E2D9C8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.join_div{
+    width: 35%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.join_h2{
+     font-family: "Poppins", sans-serif;
+font-weight: 600;
+font-style: SemiBold;
+font-size: 32px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+
+}
+.join_h3{
+     font-family: "Poppins", sans-serif;
+font-weight: 500;
+font-style: Medium;
+font-size: 16px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+
+}
+.join_podbl{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.join_email{
+    width: 65%;
+    height: 44px;
+    background: white;
+    border: 0px;
+    border-radius: 20px;
+    padding-left: 20px;
+    font-weight: 800;
+    color: black;
+}
+.join_button{
+    width: 30%;
+    height: 44px;
+    background: #30261C;
+    border: 0;
+    border-radius: 20px;
+    color: white;
+}
+footer{
+    width: 100%;
+    height: 358px;
+    background: #30261C;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.footer_div{
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.soc{
+    width: 150px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.niz{
+    height: 150px;
+    padding-bottom: 50px;
+}
+.footer_h2{
+    font-family: "Playfair Display", serif;
+font-weight: 400;
+font-style: Medium;
+font-size: 24px;
+line-height: 100%;
+letter-spacing: 1px;
+text-transform: uppercase;
+color: white;
+}
+.footer_h3{
+    color: white;
+     font-family: "Poppins", sans-serif;
+font-weight: 300;
+font-style: Regular;
+font-size: 18px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+
 }
