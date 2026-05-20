@@ -151,13 +151,13 @@ h1 {
 
 /* --- ДИЗАЙН КАРТОЧКИ --- */
 .card {
-    background-color: #F1E9DF; 
+    background-color: white; 
     border-radius: 20px;       
     padding: 15px;
     display: flex;
     flex-direction: column;
     width: 100%;                    /* Карточка слушается ширины слайда от Swiper */
-    border: 1px solid #e3d5ca;
+    border: 1px solid #E2D9C8;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     min-height: 400px;              /* Выравниваем все карточки по высоте */
 }
@@ -328,7 +328,6 @@ text-align: center;
 font-weight: 400;
 font-style: Regular;
 font-size: 32px;
-leading-trim: NONE;
 line-height: 100%;
 letter-spacing: 0%;
 text-align: center;
@@ -339,7 +338,6 @@ padding: 30px;
 font-weight: 600;
 font-style: SemiBold;
 font-size: 32px;
-leading-trim: NONE;
 line-height: 100%;
 letter-spacing: 4%;
 text-transform: uppercase;
@@ -372,8 +370,8 @@ padding: 30px;
 
 /* !!! МАГИЯ: Стили для ЦЕНТРАЛЬНОГО АКТИВНОГО слайда !!! */
 .myReviewsSwiper .swiper-slide-active .review-card {
-    background: #F1E9DF;      /* Светлый фон */
-    border: 1px solid #C4B5A5; /* Тонкая рамка */
+    background: #e6e6e6;      /* Светлый фон */
+    border: 1px solid #E2D9C8; /* Тонкая рамка */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Легкая тень */
     transform: scale(1.02);    /* Едва заметное увеличение */
 }
@@ -416,7 +414,6 @@ padding: 30px;
     display: flex;
     gap: 2px;
 }
-
 .star {
     font-size: 18px;
 }
@@ -435,6 +432,7 @@ padding: 30px;
     color: #4A3A31;
     line-height: 1.6;
     margin: 0;
+    font-family: "Poppins", sans-serif;
 }
 
 /* Стилизация точек внизу */
@@ -516,7 +514,6 @@ padding: 30px;
 font-weight: 600;
 font-style: SemiBold;
 font-size: 32px;
-leading-trim: NONE;
 line-height: 100%;
 letter-spacing: 0%;
 text-align: center;
@@ -527,7 +524,6 @@ text-align: center;
 font-weight: 500;
 font-style: Medium;
 font-size: 16px;
-leading-trim: NONE;
 line-height: 100%;
 letter-spacing: 0%;
 text-align: center;
@@ -598,8 +594,180 @@ color: white;
 font-weight: 300;
 font-style: Regular;
 font-size: 18px;
-leading-trim: NONE;
 line-height: 100%;
 letter-spacing: 0%;
 
 }
+.burger{
+    display: none;
+}
+
+
+
+
+@media (max-width: 767px) {
+    * {
+    box-sizing: border-box; /* Заставляет все элементы правильно считать свою ширину вместе с отступами */
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;    /* Железно блокирует прокрутку вправо и убирает белую полосу */
+}
+header{
+    background-position-x: -650px;
+    height: 90vh;
+}
+.nav_a{
+    display: none;
+}
+.poisk{
+    display: none;
+}
+.burger{
+    display: block;
+}
+.bolsh{
+    width: 100%;
+    height: 350px;
+}
+.minin{
+    font-size: 16px;
+}
+h1{
+    width: 100%;
+    font-size: 40px;
+}
+.lorim{
+    width: 75%;
+    font-size: 18px;
+    font-weight: 400;
+}
+.butan{
+    width: 50%;
+    font-size: 16px;
+    font-weight: 500;
+}
+.out{
+    height: 440px;
+}
+.oubl{
+    width: 75%;
+    height: 400px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.oure{
+    font-size: 26px;
+}
+.swiper-slide{
+    width: 45%;
+}
+.swiper-button-prev{
+    display: none;
+}
+.swiper-button-next{
+    display: none;
+}
+.check_out{
+    height: 600px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 70px;
+    flex-direction: column;
+    align-items: center;
+}
+.perv{
+    width: 70%;
+}
+.check_div{
+    width: 90%;
+    height: 170px;
+}
+.checks{
+    width: 80%;
+    font-size: 30px;
+}
+
+.butaaan{
+    font-size: 16px;
+}
+.come{
+    width: 90%;
+}
+.tex{
+    width: 100%;
+    height: 100px;
+}
+.tex1{
+    width: 100%;
+    font-size: 20px;
+    padding: 10px;
+}
+.tex2{
+    width: 100%;
+    font-size: 24px;
+    padding: 10px;
+}
+.join{
+    height: 250px;
+    justify-content: center;
+}
+.join_div{
+    width: 80%;
+}
+.big{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+.footer_div{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+footer{
+    height: 650px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+
+
+
+
+
+.no{
+    display: none;
+}
+.swiper-container-main .btn-next-1,
+    .swiper-container-main .btn-prev-1,
+    .swiper-container-main .btn-next-2,
+    .swiper-container-main .btn-prev-2,
+    .swiper-container-main .btn-next-3,
+    .swiper-container-main .btn-prev-3,
+    .swiper-container-main .swiper-button-next,
+    .swiper-container-main .swiper-button-prev {
+        display: none !important; /* Полностью прячем их с экрана */
+    }
+
+    /* 💡 Обязательно уменьшаем боковые отступы контейнера слайдера, 
+       так как стрелок больше нет и нам нужно вернуть это место карточкам! */
+    .swiper-container-main {
+        padding-left: 15px !important;  
+        padding-right: 15px !important; 
+        margin: 30px auto !important; /* Делаем отступы между блоками чуть компактнее */
+    }
+}
+@media (max-width: 500px) {
+    .perv{
+        width: 90%;
+    }
+    .check_out{
+        height: 600px;
+        padding-bottom: 100px;
+    }
+ }
